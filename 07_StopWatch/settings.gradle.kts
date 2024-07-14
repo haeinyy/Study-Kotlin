@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "07_StopWatch"
 include(":app")
- 
