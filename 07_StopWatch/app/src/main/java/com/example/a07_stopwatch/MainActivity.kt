@@ -13,7 +13,7 @@ import kotlin.concurrent.timer
 
 class MainActivity : AppCompatActivity(), View.OnClickListener{
 
-    var isRunning = false
+    var isRunning = false  // 실행여부 확인 변수
     var timer:Timer?= null
     var time = 0
 
@@ -27,16 +27,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // 뷰 가져오기
         btn_start = findViewById(R.id.btn_start)
         btn_refresth = findViewById(R.id.btn_refresh)
         tv_millisecond = findViewById(R.id.tv_millisecond)
         tv_second = findViewById(R.id.tv_second)
         tv_minute = findViewById(R.id.tv_minute)
-
+        // 버튼별 OnClickListener 등록
         btn_start.setOnClickListener(this)
         btn_refresth.setOnClickListener(this)
     }
 
+    // 클릭 이벤트 처리
     override fun onClick(v: View?) {
         when(v?.id){
             R.id.btn_start ->{
@@ -65,7 +67,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
             val seond = (time%6000)/100
             val minute = time/6000
 
-            runOnUiThread { // UI스레드 생성
+            runOnUiThread { // UI스레드 생성 - 안하면 백그라운드에서 UI 작업했기 때문에 ERROR 발생
                 if (isRunning) {// UI 업데이트 조건 설정
                     // 밀리초
                     tv_millisecond.text =
