@@ -8,6 +8,8 @@ import com.example.a10_todolist.db.ToDoEntity
 
 class TodoRecyclerViewAdapter(private val todoList: ArrayList<ToDoEntity>,private val listener: OnItemLongClickListener) :
     RecyclerView.Adapter<TodoRecyclerViewAdapter.MyViewHolder>() {
+        // 어댑터 객체 생성 시, todoList 를 인수로 받음.
+        // RecyclerView.Adapter 를 상속 => 뷰홀더 패턴 구현
 
     inner class MyViewHolder(binding: ItemTodoBinding) : RecyclerView.ViewHolder(binding.root) {
         val tv_importance = binding.tvImportance
